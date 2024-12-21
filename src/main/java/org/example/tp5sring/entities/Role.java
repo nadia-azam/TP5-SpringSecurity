@@ -1,16 +1,14 @@
-package entities;
+package org.example.tp5sring.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
 public class Role {
 
     @Id
@@ -22,5 +20,20 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users = new HashSet<>();
+
+
+    public Role() {
+
+    }
+
+
+    public Role(String roleAdmin) {
+        this.name = roleAdmin;
+    }
+
+
+    // Constructeur sans arguments
+
+
 
 }
